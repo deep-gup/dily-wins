@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursor Playground — Daily Wins</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="settings" id="settings">
+        <button
+          type="button"
+          id="settings-toggle"
+          class="settings-toggle"
+          aria-expanded="false"
+          aria-controls="settings-panel"
+          aria-label="Open settings"
+        >
+          ⚙ Settings
+        </button>
+        <div
+          id="settings-panel"
+          class="settings-panel hidden"
+          role="dialog"
+          aria-label="Settings"
+        >
+          <h2 class="settings-title">Settings</h2>
+
+          <fieldset class="settings-group">
+            <legend>Theme</legend>
+            <div class="option-grid" id="theme-options">
+              <label class="option-chip">
+                <input type="radio" name="theme" value="dark" checked />
+                Dark
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="theme" value="light" />
+                Light
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="theme" value="midnight" />
+                Midnight
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="settings-group">
+            <legend>Accent color</legend>
+            <div class="option-grid option-grid--swatches" id="accent-options">
+              <label class="swatch swatch--purple" title="Purple">
+                <input type="radio" name="accent" value="purple" checked />
+                <span class="sr-only">Purple</span>
+              </label>
+              <label class="swatch swatch--green" title="Green">
+                <input type="radio" name="accent" value="green" />
+                <span class="sr-only">Green</span>
+              </label>
+              <label class="swatch swatch--blue" title="Blue">
+                <input type="radio" name="accent" value="blue" />
+                <span class="sr-only">Blue</span>
+              </label>
+              <label class="swatch swatch--coral" title="Coral">
+                <input type="radio" name="accent" value="coral" />
+                <span class="sr-only">Coral</span>
+              </label>
+              <label class="swatch swatch--pink" title="Pink">
+                <input type="radio" name="accent" value="pink" />
+                <span class="sr-only">Pink</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <main class="app">
+      <header class="header">
+        <p class="eyebrow">Your first Cursor project</p>
+        <h1>Daily Wins</h1>
+        <p class="subtitle">
+          Track small victories. Then use AI to extend this app — that's the
+          whole point.
+        </p>
+      </header>
+
+      <form id="win-form" class="win-form" autocomplete="off">
+        <label for="win-input" class="sr-only">New win</label>
+        <input
+          id="win-input"
+          type="text"
+          placeholder="What did you accomplish today?"
+          maxlength="120"
+          required
+        />
+        <button type="submit">Add win</button>
+      </form>
+
+      <section class="stats" aria-live="polite">
+        <span id="total-count">0 wins</span>
+        <span id="done-count">0 completed</span>
+      </section>
+
+      <ul id="win-list" class="win-list" aria-label="Daily wins"></ul>
+
+      <p id="empty-state" class="empty-state">
+        No wins yet. Add one above — or ask Cursor: "Add three sample wins so I
+        can see how the list looks."
+      </p>
+    </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
